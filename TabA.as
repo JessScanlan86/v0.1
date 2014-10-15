@@ -2,7 +2,7 @@
 {
 	import feathers.controls.Panel;
 	import feathers.controls.Button;
-	import feathers.events.FeathersEventType;`
+	import feathers.events.FeathersEventType;
 	import starling.events.Event;
 
 	import flash.media.Sound;
@@ -21,7 +21,7 @@
 			this.addEventListener(FeathersEventType.INITIALIZE, initializeHandler);
 		}
 		
-		public function setAssetManager(as:AssetManager):void
+		public function setAssetManager(am:AssetManager):void
 		{
 			if (am is AssetManager)
 			{

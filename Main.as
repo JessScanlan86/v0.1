@@ -162,12 +162,12 @@
 		tabBar.selectedIndex = 1;
 		tabBar.addEventListener( Event.CHANGE, tabs_changeHandler );
 		
-		tabLayoutData = new AnchorLayoutData();
-		tabLayoutData.bottom = 5;
-		tabLayoutData.left = 5;
-		tabLayoutData.right = 5;
+		tabsLayoutData = new AnchorLayoutData();
+		tabsLayoutData.bottom = 5;
+		tabsLayoutData.left = 5;
+		tabsLayoutData.right = 5;
 		
-		tabBar.layoutData = tabLayoutData;
+		tabBar.layoutData = tabsLayoutData;
 		
 		this.addChild( tabBar );
 					
