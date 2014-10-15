@@ -26,6 +26,7 @@
 	import feathers.data.ListCollection;
 	import starling.utils.AssetManager;
 	import flash.text.engine.TabAlignment;
+	import flash.text.engine.EastAsianJustifier;
 	
 
 	public class Main extends Screen
@@ -178,12 +179,18 @@
 		
 		contentPanelLayoutData.bottomAnchorDisplayObject = tabBar;
 					
-		tabA = new TabA;
+		tabA = new TabA();
 		tabA.layoutData = contentPanelLayoutData;
 		
-		tabA.setAssetmanager(assetMgr);
-					
-					
+		tabA.setAssetManager(assetMgr);
+		this.contentPanel = tabA;
+		this.addChild(contentPanel);
+		}
+		private function tabs_changeHandler(e:Event):void
+		{
+			trace( "selectedIndex:", tabBar.selectedIndex );
+		}
+		
 		protected function button_triggeredHandler(event:Event):void
 		{
 			bgImgLoader.source = atlas.getTexture("Sprite_2");
