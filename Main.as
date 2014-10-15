@@ -158,6 +158,32 @@
 					{ label: "Two" },
 					{ label: "Three" },
 				]);
+		tabBar.selectedIndex = 1;
+		tabBar.addEventListener( Event.CHANGE, tabs_changeHandler );
+		
+		tabLayoutData = new AnchorLayoutData();
+		tabLayoutData.bottom = 5;
+		tabLayoutData.left = 5;
+		tabLayoutData.right = 5;
+		
+		tabBar.layoutData = tabLayoutData;
+		
+		this.addChild( tabBar );
+					
+		contentPanelLayoutData = new AnchorLayoutData();
+		contentPanelLayoutData.top = 5;
+		contentPanelLayoutData.left = 5;
+		contentPanelLayoutData.right = 5;
+		contentPanelLayoutData.bottom = 1;
+		
+		contentPanelLayoutData.bottomAnchorDisplayObject = tabBar;
+					
+		tabA = new TabA;
+		tabA.layoutData = contentPanelLayoutData;
+		
+		tabA.setAssetmanager(assetMgr);
+					
+					
 		protected function button_triggeredHandler(event:Event):void
 		{
 			bgImgLoader.source = atlas.getTexture("Sprite_2");
