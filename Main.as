@@ -25,6 +25,7 @@
 	import feathers.motion.transitions.ScreenFadeTransitionManager;
 	import feathers.data.ListCollection;
 	import starling.utils.AssetManager;
+	import flash.text.engine.TabAlignment;
 	
 
 	public class Main extends Screen
@@ -44,8 +45,17 @@
 		private var contentPanel:Panel;
 		private var buttonPanel:Panel;
 		
+		//For audio
 		
-
+		private var tabA:TabA;
+		private var tabBar:TabBar;
+		
+		private var contentPanelLayoutData:AnchorLayoutData;
+		private var tabsLayoutData:AnchorLayoutData;
+		
+		private var assetMgr:AssetManager;
+		
+		//
 		public function Main()
 		{
 			// constructor code
@@ -54,6 +64,16 @@
 		}
 		private function initializeHandler (e:Event):void
 		{
+			// For audio
+			
+			assetMgr = new AssetManager();
+			assetMgr.verbose = true;
+			assetMgr.enqueue(EmbeddedAssets);
+			assetMgr.loadQueue(handleAssetsLoading);
+			
+			
+			//
+			
 			this.removeEventListener(FeathersEventType.INITIALIZE, initializeHandler);
 			this.stage.addEventListener(Event.RESIZE, stageResized);
 			
@@ -113,6 +133,31 @@
 			
 			this.buttonPanel.addChild(this.button);
 		}
+		private function handleAssetsLoading(ratioLoaded:Number):void
+		{
+			trace("handleAssetsLoading: " + ratioLoaded);
+			
+			if (ratioLoaded == 1)
+			{
+				startApp();
+			}
+		}
+		private function startApp()
+		{
+			new MetalWorksMobileTheme();
+			
+			this.layout = new AnchorLayout();
+			
+			this.height = this.stage.stageHeight;
+			this.width = this.stage.stageWidth;
+			
+			tabBar = new TabBar();
+			tabBar.dataProvider = new ListCollection(
+				[
+					{ label: "One" },
+					{ label: "Two" },
+					{ label: "Three" },
+				]);
 		protected function button_triggeredHandler(event:Event):void
 		{
 			bgImgLoader.source = atlas.getTexture("Sprite_2");
