@@ -17,15 +17,15 @@
 	</name>
 -->
 <application xmlns="http://ns.adobe.com/air/application/3.6">
-  <id>FeathersSprites</id>
+  <id>MapApp</id>
   <versionNumber>1.0.0</versionNumber>
   <versionLabel/>
-  <filename>FeathersSprites</filename>
+  <filename>MapApp</filename>
   <description/>
-  <name>FeathersSprites</name>
+  <name>MapApp</name>
   <copyright/>
   <initialWindow>
-    <content>FeathersSprites.swf</content>
+    <content>MapApp.swf</content>
     <systemChrome>standard</systemChrome>
     <transparent>false</transparent>
     <visible>true</visible>
